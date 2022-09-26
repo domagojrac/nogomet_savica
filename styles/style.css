@@ -1,0 +1,158 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: auto;
+}
+
+body::before {
+    background-image: url("../Photos/Background.jpeg");
+    background-attachment: fixed;
+    opacity: 0.6;
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    border: 5px solid gray;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    filter: grayscale(100%);
+
+}
+
+#players {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+}
+
+#Role_button {
+    background-image: url("../Photos/Role.jpg");
+}
+
+#Rac_button {
+    background-image: url("../Photos/Rac.jpg");
+}
+
+#Iggy_button {
+    background-image: url("../Photos/Iggy.jpg");
+}
+
+#Šare_button {
+    background-image: url("../Photos/Šare.jpg");
+}
+
+#Joka_button {
+    background-image: url("../Photos/Joka.jpg");
+}
+
+#Gešta_button {
+    background-image: url("../Photos/Gešta.jpg");
+}
+
+#Def_button {
+    background-image: url("../Photos/Def.jpg");
+}
+
+#Šoša_button {
+    background-image: url("../Photos/Šoša.jpg");
+}
+
+#Dinko_button {
+    background-image: url("../Photos/Dinko.jpg");
+}
+
+#Flipsy_button {
+    background-image: url("../Photos/Flipsy.jpg");
+}
+
+#Hek_button {
+    background-image: url("../Photos/Hek.jpg");
+}
+
+#Tonka_button {
+    background-image: url("../Photos/Tonka.jpg");
+}
+
+#Gregy_button {
+    background-image: url("../Photos/Gregy.jpg");
+}
+
+#Ala_button {
+    background-image: url("../Photos/Ala.jpg");
+}
+
+#Haf_button {
+    background-image: url("../Photos/Haf.jpg");
+}
+
+#Juc_button {
+    background-image: url("../Photos/Juc.jpg");
+}
+
+#Goreta_button {
+    background-image: url("../Photos/Goreta.jpg");
+}
+
+#Maki_button {
+    background-image: url("../Photos/Maki.jpg");
+}
+
+#Nabor_button {
+    background-image: url("../Photos/Nabor.jpg");
+}
+
+#Džoni_button {
+    background-image: url("../Photos/Džoni.jpg");
+}
+
+#Nele_button {
+    background-image: url("../Photos/Nele.jpg");
+}
+
+#Pacho_button {
+    background-image: url("../Photos/Pacho.jpg");
+}
+
+#Pavle_button {
+    background-image: url("../Photos/Pavle.jpg");
+}
+
+#Repe_button {
+    background-image: url("../Photos/Repe.jpg");
+}
+
+.playerInfo {
+    font-size: 40px;
+    padding-top: 250px;
+    font-family: 'Rubik Mono One', sans-serif;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: aliceblue;
+
+}
+
+.playerName, .playerRating {
+    margin: 10px;
+}
+
+.active {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    border: 5px solid yellow;
+}
