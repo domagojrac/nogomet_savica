@@ -40,7 +40,7 @@ generateButton.addEventListener("click", () => {
     } else if (count > 12) {
         alert("Imaš " + (count - 12) + " igrača previše!");
     } else {
-        alert("Program još nije gotov! :(");
-    }
+        window.open("teams.html", "_self");
+    };
     count = 0;
 });

@@ -1,0 +1,104 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("../Photos/9faf7d9ef20efee20bb209bd2acfe18e.jpeg");
+    background-size: 100% 100%;
+    height: 100%;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+p {
+    position: absolute;
+    font-size: 40px;
+    font-weight: bolder;
+    -webkit-text-stroke-width: 1px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+#whiteOne {
+    top: 8%;
+    left: 45%;
+    color: white;
+    -webkit-text-stroke-color: black;
+}
+
+#whiteTwo {
+    top: 25%;
+    left: 25%;
+    color: white;
+    -webkit-text-stroke-color: black;
+}
+
+#whiteThree {
+    top: 25%;
+    left: 60%;
+    color: white;
+    -webkit-text-stroke-color: black;
+}
+
+#whiteFour {
+    top: 35%;
+    left: 10%;
+    color: white;
+    -webkit-text-stroke-color: black;
+}
+
+#whiteFive {
+    top: 35%;
+    left: 70%;
+    color: white;
+    -webkit-text-stroke-color: black;
+}
+
+#whiteSix {
+    top: 45%;
+    left: 44%;
+    color: white;
+    -webkit-text-stroke-color: black;
+}
+
+#blackOne {
+    top: 89%;
+    left: 45%;
+    color: black;
+    -webkit-text-stroke-color: white;
+}
+
+#blackTwo {
+    top: 73%;
+    left: 24%;
+    color: black;
+    -webkit-text-stroke-color: white;
+}
+
+#blackThree {
+    top: 73%;
+    left: 60%;
+    color: black;
+    -webkit-text-stroke-color: white;
+}
+
+#blackFour {
+    top: 60%;
+    left: 10%;
+    color: black;
+    -webkit-text-stroke-color: white;
+}
+
+#blackFive {
+    top: 60%;
+    left: 70%;
+    color: black;
+    -webkit-text-stroke-color: white;
+}
+
+#blackSix {
+    top: 53%;
+    left: 44%;
+    color: black;
+    -webkit-text-stroke-color: white;
+}
