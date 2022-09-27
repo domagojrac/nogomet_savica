@@ -3,6 +3,7 @@ var generateButton = document.getElementById("generateButton");
 var count = 0;
 const selectAudio = new Audio("Music/Game Menu Select Sound Effect (1).mp3");
 const unselectAudio = new Audio();
+const anthemAudio = new Audio("Music/UEFA Champions League Hymne Stadion Version _ Lyrics.mp3");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {

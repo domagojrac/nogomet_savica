@@ -17,6 +17,15 @@ p {
     margin: 0px;
     padding: 0px;
     border: 0px;
+    animation-name: opacity;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
+}
+
+@keyframes opacity {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
 }
 
 #whiteOne {
@@ -31,6 +40,7 @@ p {
     left: 25%;
     color: white;
     -webkit-text-stroke-color: black;
+    animation-delay: 10s;
 }
 
 #whiteThree {
@@ -38,6 +48,7 @@ p {
     left: 60%;
     color: white;
     -webkit-text-stroke-color: black;
+    animation-delay: 20s;
 }
 
 #whiteFour {
@@ -45,6 +56,7 @@ p {
     left: 10%;
     color: white;
     -webkit-text-stroke-color: black;
+    animation-delay: 30s;
 }
 
 #whiteFive {
@@ -52,6 +64,7 @@ p {
     left: 70%;
     color: white;
     -webkit-text-stroke-color: black;
+    animation-delay: 40s;
 }
 
 #whiteSix {
@@ -59,6 +72,7 @@ p {
     left: 44%;
     color: white;
     -webkit-text-stroke-color: black;
+    animation-delay: 50s;
 }
 
 #blackOne {
@@ -66,6 +80,7 @@ p {
     left: 45%;
     color: black;
     -webkit-text-stroke-color: white;
+    animation-delay: 5s;
 }
 
 #blackTwo {
@@ -73,6 +88,7 @@ p {
     left: 24%;
     color: black;
     -webkit-text-stroke-color: white;
+    animation-delay: 15s;
 }
 
 #blackThree {
@@ -80,6 +96,7 @@ p {
     left: 60%;
     color: black;
     -webkit-text-stroke-color: white;
+    animation-delay: 25s;
 }
 
 #blackFour {
@@ -87,6 +104,7 @@ p {
     left: 10%;
     color: black;
     -webkit-text-stroke-color: white;
+    animation-delay: 35s;
 }
 
 #blackFive {
@@ -94,6 +112,7 @@ p {
     left: 70%;
     color: black;
     -webkit-text-stroke-color: white;
+    animation-delay: 45s;
 }
 
 #blackSix {
@@ -101,4 +120,6 @@ p {
     left: 44%;
     color: black;
     -webkit-text-stroke-color: white;
+    animation-delay: 55s;
 }
+
