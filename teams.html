@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="styles/styleTeams.css">
     </head>
     <body>
+
         <audio autoplay no controls loop>
-            <source src="Music/UEFA Champions League Hymne Stadion Version _ Lyrics.mp3" type="audio/mp3">
+            <src="Music/UEFA Champions League Hymne Stadion Version _ Lyrics.mp3" type="audio/mp3">
         </audio>
         <p id="whiteOne">White1</p>
         <p id="whiteTwo">White2</p>
@@ -23,6 +24,24 @@
         <p id="blackFour">Black4</p>
         <p id="blackFive">Black5</p>
         <p id="blackSix">Black6</p>
-        <script src="" async defer></script>
+
+        <script>
+            var teamWhite = JSON.parse(sessionStorage.getItem("teamWhite"));
+            var teamBlack = JSON.parse(sessionStorage.getItem("teamBlack"));
+
+            document.getElementById("whiteOne").innerText = teamWhite[0];
+            document.getElementById("whiteTwo").innerText = teamWhite[1];
+            document.getElementById("whiteThree").innerText = teamWhite[2];
+            document.getElementById("whiteFour").innerText = teamWhite[3];
+            document.getElementById("whiteFive").innerText = teamWhite[4];
+            document.getElementById("whiteSix").innerText = teamWhite[5];
+            document.getElementById("blackOne").innerText = teamBlack[0];
+            document.getElementById("blackTwo").innerText = teamBlack[1];
+            document.getElementById("blackThree").innerText = teamBlack[2];
+            document.getElementById("blackFour").innerText = teamBlack[3];
+            document.getElementById("blackFive").innerText = teamBlack[4];
+            document.getElementById("blackSix").innerText = teamBlack[5];
+        </script>
+        
     </body>
 </html>
