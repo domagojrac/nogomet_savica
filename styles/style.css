@@ -138,6 +138,10 @@ body::before {
     background-image: url("../Photos/Repe.jpg");
 }
 
+#Jozo_button {
+    background-image: url("../Photos/Jozo.jpeg");
+}
+
 .playerInfo {
     font-size: 40px;
     padding-top: 250px;
