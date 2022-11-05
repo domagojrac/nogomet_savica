@@ -142,6 +142,9 @@ body::before {
     background-image: url("../Photos/Jozo.jpeg");
 }
 
+#Buki_button {
+    background-image: url("../Photos/Buki.jpeg");
+}
 .playerInfo {
     font-size: 40px;
     padding-top: 250px;
