@@ -145,6 +145,10 @@ body::before {
 #Buki_button {
     background-image: url("../Photos/Buki.jpeg");
 }
+
+#Žica_button {
+    background-image: url("../Photos/Žica.jpeg");
+}
 .playerInfo {
     font-size: 40px;
     padding-top: 250px;
