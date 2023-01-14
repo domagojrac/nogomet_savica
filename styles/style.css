@@ -149,6 +149,14 @@ body::before {
 #Žica_button {
     background-image: url("../Photos/Žica.jpeg");
 }
+
+#Smiljan_button {
+    background-image: url("../Photos/Smiljan.jpeg");
+}
+
+#Josko_button {
+    background-image: url("../Photos/Josko.jpeg");
+}
 .playerInfo {
     font-size: 40px;
     padding-top: 250px;
