@@ -33,7 +33,7 @@ body::before {
 
 }
 
-#players {
+#allPlayers {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,132 +42,14 @@ body::before {
     position: relative;
 }
 
-#Role_button {
-    background-image: url("../Photos/Role.jpg");
-}
-
-#Rac_button {
-    background-image: url("../Photos/Rac.jpg");
-}
-
-#Iggy_button {
-    background-image: url("../Photos/Iggy.jpg");
-}
-
-#Šare_button {
-    background-image: url("../Photos/Šare.jpg");
-}
-
-#Joka_button {
-    background-image: url("../Photos/Joka.jpg");
-}
-
-#Gešta_button {
-    background-image: url("../Photos/Gešta.jpg");
-}
-
-#Def_button {
-    background-image: url("../Photos/Def.jpg");
-}
-
-#Šoša_button {
-    background-image: url("../Photos/Šoša.jpg");
-}
-
-#Dinko_button {
-    background-image: url("../Photos/Dinko.jpg");
-}
-
-#Flipsy_button {
-    background-image: url("../Photos/Flipsy.jpg");
-}
-
-#Hek_button {
-    background-image: url("../Photos/Hek.jpg");
-}
-
-#Tonka_button {
-    background-image: url("../Photos/Tonka.jpg");
-}
-
-#Gregy_button {
-    background-image: url("../Photos/Gregy.jpg");
-}
-
-#Ala_button {
-    background-image: url("../Photos/Ala.jpg");
-}
-
-#Haf_button {
-    background-image: url("../Photos/Haf.jpg");
-}
-
-#Juc_button {
-    background-image: url("../Photos/Juc.jpg");
-}
-
-#Goreta_button {
-    background-image: url("../Photos/Goreta.jpg");
-}
-
-#Maki_button {
-    background-image: url("../Photos/Maki.jpg");
-}
-
-#Nabor_button {
-    background-image: url("../Photos/Nabor.jpg");
-}
-
-#Džoni_button {
-    background-image: url("../Photos/Džoni.jpg");
-}
-
-#Nele_button {
-    background-image: url("../Photos/Nele.jpg");
-}
-
-#Pacho_button {
-    background-image: url("../Photos/Pacho.jpg");
-}
-
-#Pavle_button {
-    background-image: url("../Photos/Pavle.jpg");
-}
-
-#Repe_button {
-    background-image: url("../Photos/Repe.jpg");
-}
-
-#Jozo_button {
-    background-image: url("../Photos/Jozo.jpeg");
-}
-
-#Buki_button {
-    background-image: url("../Photos/Buki.jpeg");
-}
-
-#Žica_button {
-    background-image: url("../Photos/Žica.jpeg");
-}
-
-#Smiljan_button {
-    background-image: url("../Photos/Smiljan.jpeg");
-}
-
-#Josko_button {
-    background-image: url("../Photos/Josko.jpeg");
-}
-.playerInfo {
+.name, .rating {
     font-size: 40px;
-    padding-top: 250px;
+    padding-top: 20px;
     font-family: 'Rubik Mono One', sans-serif;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: aliceblue;
-
-}
-
-.playerName, .playerRating {
     margin: 10px;
+
 }
 
 .active {
@@ -197,4 +79,29 @@ body::before {
 
 audio {
     margin-top: 40px;
+}
+
+#allPlayers{
+	display: none;
+}
+
+#errorMessage{
+	display: none;
+	color: red;
+}
+
+#loader {	
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 40px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
