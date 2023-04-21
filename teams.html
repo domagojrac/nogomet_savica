@@ -49,13 +49,13 @@
             document.getElementById("blackSix").innerText = teamBlack[5];
 
             function clickHandler() {
+                storePlayers(selectedPlayers);
                 createTeams();
                 window.open("teams.html", "_self");
             };
 
             function createTeams() {
                 var playerValues = [];
-                storePlayers(selectedPlayers);
 
                 var totalValue = 0;
                 var checkSum = 0;
@@ -100,6 +100,10 @@
             function get(item1, item2) {
                 var teamWhite = JSON.parse(sessionStorage.getItem(item1));
                 var teamBlack = JSON.parse(sessionStorage.getItem(item2));
+            };
+
+            function getPlayers(item1) {
+                var selectedPlayers = JSON.parse(sessionStorage.getItem(item1));
             };
 
             function getKeyByValue(object, value) {
