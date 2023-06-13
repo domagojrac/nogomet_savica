@@ -52,3 +52,7 @@ fetch("https://api.apispreadsheets.com/data/KrDsZ4AFnODMCGMS/").then(res=>{
 		}).catch(err =>{
 			setErrorDisplay()
 		})
+
+
+
+		

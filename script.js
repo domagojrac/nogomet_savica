@@ -111,6 +111,7 @@ function createTeams() {
 
     for (let i = 6; i < 12; i++) {
         teamBlack.push(getKeyByValue(selectedPlayers, playerValues[i]));
+        delete selectedPlayers[getKeyByValue(selectedPlayers, playerValues[i])];
     }
 
     store(teamWhite, teamBlack);
