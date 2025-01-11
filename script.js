@@ -48,6 +48,7 @@ generateButton.addEventListener("click", () => {
     count = 0;
 });
 
+
 function createList() {
     var selectedPlayers = {};
     const buttons = document.querySelectorAll(".player");  
@@ -81,37 +82,41 @@ function get(item1, item2) {
 function createTeams() {
     var playerValues = [];
     var selectedPlayers = createList();
+    var playerEntries = Object.entries(selectedPlayers);
 
     storePlayers(selectedPlayers);
 
-    var totalValue = 0;
-    var checkSum = 0;
+    playerEntries.sort((a, b) => b[1] - a[1]);
+
     var teamWhite = [];
     var teamBlack = [];
-    for (const key in selectedPlayers) {
-        playerValues.push(selectedPlayers[key]);
-        totalValue = totalValue + selectedPlayers[key];
-    };
     
+    // Split the top two players into different teams
+    teamWhite.push(playerEntries[0][0]); 
+    teamBlack.push(playerEntries[1][0]);
+    
+    playerEntries.splice(0, 2);
+
+    var totalValue = playerEntries.reduce((sum, player) => sum + player[1], 0);
     var goalValue = totalValue / 2;
 
-    while (Math.abs(checkSum - goalValue) > 1) {
-        checkSum = 0;
-        playerValues = playerValues.sort(() => 0.5 - Math.random());
-        for (let i = 0; i < 6; i++) {
-            checkSum = checkSum + playerValues[i];
-        };
-        console.log(Math.abs(checkSum - goalValue));
-    };
+    var checkSum = 0;
 
-    for (let i = 0; i < 6; i++) {
-        teamWhite.push(getKeyByValue(selectedPlayers, playerValues[i]));
-        delete selectedPlayers[getKeyByValue(selectedPlayers, playerValues[i])];
+    while (Math.abs(checkSum - goalValue) > 2) {
+        checkSum = 0;
+        playerEntries = playerEntries.sort(() => 0.5 - Math.random());
+
+        for (let i = 0; i < 5; i++) {
+            checkSum += playerEntries[i][1];
+        }
     }
 
-    for (let i = 6; i < 12; i++) {
-        teamBlack.push(getKeyByValue(selectedPlayers, playerValues[i]));
-        delete selectedPlayers[getKeyByValue(selectedPlayers, playerValues[i])];
+    for (let i = 0; i < 5; i++) {
+        teamWhite.push(playerEntries[i][0]);
+    }
+
+    for (let i = 5; i < 10; i++) {
+        teamBlack.push(playerEntries[i][0]);
     }
 
     store(teamWhite, teamBlack);
