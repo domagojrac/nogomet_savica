@@ -48,6 +48,7 @@ generateButton.addEventListener("click", () => {
     count = 0;
 });
 
+
 function createList() {
     var selectedPlayers = {};
     const buttons = document.querySelectorAll(".player");  
@@ -85,17 +86,15 @@ function createTeams() {
 
     storePlayers(selectedPlayers);
 
-    // Sort players by rating in descending order
     playerEntries.sort((a, b) => b[1] - a[1]);
 
     var teamWhite = [];
     var teamBlack = [];
-
+    
     // Split the top two players into different teams
-    teamWhite.push(playerEntries[0][0]); // Top-rated player
-    teamBlack.push(playerEntries[1][0]); // Second top-rated player
-
-    // Remove these players from further consideration
+    teamWhite.push(playerEntries[0][0]); 
+    teamBlack.push(playerEntries[1][0]);
+    
     playerEntries.splice(0, 2);
 
     var totalValue = playerEntries.reduce((sum, player) => sum + player[1], 0);
@@ -103,8 +102,7 @@ function createTeams() {
 
     var checkSum = 0;
 
-    // Shuffle remaining players to test combinations
-    while (Math.abs(checkSum - goalValue) > 1) {
+    while (Math.abs(checkSum - goalValue) > 2) {
         checkSum = 0;
         playerEntries = playerEntries.sort(() => 0.5 - Math.random());
 
@@ -113,46 +111,12 @@ function createTeams() {
         }
     }
 
-    // Assign 5 players to Team White and remaining to Team Black
     for (let i = 0; i < 5; i++) {
         teamWhite.push(playerEntries[i][0]);
     }
 
     for (let i = 5; i < 10; i++) {
         teamBlack.push(playerEntries[i][0]);
-    }
-
-    // List of special players
-    const specialPlayers = ["Maki", "Tonka", "Hafner", "Juc", "Nabor"];
-
-    // Count special players in each team
-    const countSpecialPlayers = (team) => {
-        return team.filter(player => specialPlayers.includes(player)).length;
-    };
-
-    // Adjust ratings for special players rule
-    const adjustRatingWithBonus = (team) => {
-        const specialCount = countSpecialPlayers(team);
-        return specialCount >= 3 ? 4 : 0;
-    };
-
-    let teamWhiteBonus = adjustRatingWithBonus(teamWhite);
-    let teamBlackBonus = adjustRatingWithBonus(teamBlack);
-
-    let teamWhiteRating = teamWhite.reduce((sum, player) => selectedPlayers[player] || 0, 0) + teamWhiteBonus;
-    let teamBlackRating = teamBlack.reduce((sum, player) => selectedPlayers[player] || 0, 0) + teamBlackBonus;
-
-    // Rebalance teams if the ratings differ too much
-    while (Math.abs(teamWhiteRating - teamBlackRating) > 1) {
-        const playerToSwap = teamWhite.pop();
-        teamBlack.push(playerToSwap);
-
-        // Recalculate ratings
-        teamWhiteBonus = adjustRatingWithBonus(teamWhite);
-        teamBlackBonus = adjustRatingWithBonus(teamBlack);
-
-        teamWhiteRating = teamWhite.reduce((sum, player) => selectedPlayers[player] || 0, 0) + teamWhiteBonus;
-        teamBlackRating = teamBlack.reduce((sum, player) => selectedPlayers[player] || 0, 0) + teamBlackBonus;
     }
 
     store(teamWhite, teamBlack);
