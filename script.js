@@ -81,37 +81,78 @@ function get(item1, item2) {
 function createTeams() {
     var playerValues = [];
     var selectedPlayers = createList();
+    var playerEntries = Object.entries(selectedPlayers);
 
     storePlayers(selectedPlayers);
 
-    var totalValue = 0;
-    var checkSum = 0;
+    // Sort players by rating in descending order
+    playerEntries.sort((a, b) => b[1] - a[1]);
+
     var teamWhite = [];
     var teamBlack = [];
-    for (const key in selectedPlayers) {
-        playerValues.push(selectedPlayers[key]);
-        totalValue = totalValue + selectedPlayers[key];
-    };
-    
+
+    // Split the top two players into different teams
+    teamWhite.push(playerEntries[0][0]); // Top-rated player
+    teamBlack.push(playerEntries[1][0]); // Second top-rated player
+
+    // Remove these players from further consideration
+    playerEntries.splice(0, 2);
+
+    var totalValue = playerEntries.reduce((sum, player) => sum + player[1], 0);
     var goalValue = totalValue / 2;
 
+    var checkSum = 0;
+
+    // Shuffle remaining players to test combinations
     while (Math.abs(checkSum - goalValue) > 1) {
         checkSum = 0;
-        playerValues = playerValues.sort(() => 0.5 - Math.random());
-        for (let i = 0; i < 6; i++) {
-            checkSum = checkSum + playerValues[i];
-        };
-        console.log(Math.abs(checkSum - goalValue));
-    };
+        playerEntries = playerEntries.sort(() => 0.5 - Math.random());
 
-    for (let i = 0; i < 6; i++) {
-        teamWhite.push(getKeyByValue(selectedPlayers, playerValues[i]));
-        delete selectedPlayers[getKeyByValue(selectedPlayers, playerValues[i])];
+        for (let i = 0; i < 5; i++) {
+            checkSum += playerEntries[i][1];
+        }
     }
 
-    for (let i = 6; i < 12; i++) {
-        teamBlack.push(getKeyByValue(selectedPlayers, playerValues[i]));
-        delete selectedPlayers[getKeyByValue(selectedPlayers, playerValues[i])];
+    // Assign 5 players to Team White and remaining to Team Black
+    for (let i = 0; i < 5; i++) {
+        teamWhite.push(playerEntries[i][0]);
+    }
+
+    for (let i = 5; i < 10; i++) {
+        teamBlack.push(playerEntries[i][0]);
+    }
+
+    // List of special players
+    const specialPlayers = ["Maki", "Tonka", "Hafner", "Juc", "Nabor"];
+
+    // Count special players in each team
+    const countSpecialPlayers = (team) => {
+        return team.filter(player => specialPlayers.includes(player)).length;
+    };
+
+    // Adjust ratings for special players rule
+    const adjustRatingWithBonus = (team) => {
+        const specialCount = countSpecialPlayers(team);
+        return specialCount >= 3 ? 4 : 0;
+    };
+
+    let teamWhiteBonus = adjustRatingWithBonus(teamWhite);
+    let teamBlackBonus = adjustRatingWithBonus(teamBlack);
+
+    let teamWhiteRating = teamWhite.reduce((sum, player) => selectedPlayers[player] || 0, 0) + teamWhiteBonus;
+    let teamBlackRating = teamBlack.reduce((sum, player) => selectedPlayers[player] || 0, 0) + teamBlackBonus;
+
+    // Rebalance teams if the ratings differ too much
+    while (Math.abs(teamWhiteRating - teamBlackRating) > 1) {
+        const playerToSwap = teamWhite.pop();
+        teamBlack.push(playerToSwap);
+
+        // Recalculate ratings
+        teamWhiteBonus = adjustRatingWithBonus(teamWhite);
+        teamBlackBonus = adjustRatingWithBonus(teamBlack);
+
+        teamWhiteRating = teamWhite.reduce((sum, player) => selectedPlayers[player] || 0, 0) + teamWhiteBonus;
+        teamBlackRating = teamBlack.reduce((sum, player) => selectedPlayers[player] || 0, 0) + teamBlackBonus;
     }
 
     store(teamWhite, teamBlack);
